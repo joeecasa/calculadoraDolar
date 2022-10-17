@@ -1,0 +1,17 @@
+.none {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.container-main {
+    justify-content: space-around;
+}
+
+.home-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+

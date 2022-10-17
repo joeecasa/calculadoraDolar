@@ -1,0 +1,59 @@
+.div-card{
+width: 347px;
+margin-bottom: 25px;
+box-shadow: 6px -4px teal;
+border-left: 1px solid black;
+border-bottom: 1px solid black;
+
+}
+
+.App-logo {
+    height: 45px;
+    pointer-events: none;
+}
+
+.nav-item {
+    font-size: 20px;
+    transition: all 0.5s;
+    border-radius: 10px;
+}
+.navbar{
+    height: 68px;
+    margin-bottom: 25px;
+}
+.nav-item:hover {
+    border: solid 0.2px rgb(216, 216, 216);
+    border-radius: 10px;
+}
+
+.nav-item{
+    margin-left: 15px;
+}
+.card-logo{
+    width: 50px;
+    margin-left: 15px;
+}
+.card-title{
+    border-bottom: 1px solid black;
+    padding-bottom: 8px;
+    text-align: center;
+}
+
+
+
+.div-app {
+    background-image: url("../components/assets/back4.svg");
+    background-size: cover;
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    min-height: 100vh;
+    /* minimum height of page would be equal to available view-port height */
+    margin-top: 0px;
+}
+
+.card-text{
+    text-align: center;
+}
+@media (min-width: 992px) {
+   
+}
