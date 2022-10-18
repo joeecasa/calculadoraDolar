@@ -108,11 +108,12 @@ const Calculadora = () => {
             <h1 className='title-calc'>
                 Calculadora Dolar Tarjeta
             </h1>
-            <div className='container-calcu'>
+            <div className='container-calcu '>
+        <div className='text-calc ingrese'>Ingrese la cantidad de dolares a calcular </div>
 
                 <form
                     onSubmit={ handleSubmit }
-                    className=""
+                    className="form-calc"
                 >
 
                     <input
@@ -125,13 +126,19 @@ const Calculadora = () => {
                     >
 
                     </input>
+                   
                     <button
                         type='submit'
-                        className='btn btn-success'
+                        className='btn-calcu'
                     >
-                        calcular
+                        Calcular
 
                     </button>
+                    <div
+                    className='text-error'
+                >
+                    {errors.cantidad}
+                </div>
                     <div className='text-calc'>
                         <div>
                             Cotizacion Dolar Oficial
@@ -208,7 +215,7 @@ const Calculadora = () => {
                         (
                             <div className='text-calc' >
                                 <div>
-                                    *El impuesto Qatar Aplica cuando se superan los u$d 300
+                                    *El impuesto Qatar Aplica cuando se superan los USD 300
 
                                 </div>
                                 
@@ -218,11 +225,7 @@ const Calculadora = () => {
                         :
                         ("")
                 }
-                <div
-                    className='text-error'
-                >
-                    {errors.cantidad}
-                </div>
+                
             </div>
         </div >
     )

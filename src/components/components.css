@@ -24,6 +24,7 @@
 .navbar {
     height: 68px;
     margin-bottom: 25px;
+    margin-top: 15px;
 }
 
 .nav-item:hover {
@@ -72,9 +73,7 @@
     font-weight: 500;
 }
 
-@media (min-width: 576px) {
-    
-}
+
 
 .link-foot {
     color: white;

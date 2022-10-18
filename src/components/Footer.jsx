@@ -1,18 +1,23 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import "./components.css"
 const Footer = () => {
 
   return (
     <div>
-      <Link to="#" className='link-foot'>
+      <a 
+      href="https://www.linkedin.com/in/joel-casa-marquez/" 
+      className='link-foot' 
+      target="_blank" 
+      rel="noopener noreferrer">
         Desarrollado por Joel casa
 
-      </Link>
+      </a>
 
       <a
       className='link-foot'
         href={"https://www.dolarsi.com/"}
+        target="_blank" 
+        rel="noopener noreferrer"
       >
         Fuente
         (DolarSI)
