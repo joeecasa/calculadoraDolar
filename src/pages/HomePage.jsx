@@ -17,9 +17,16 @@ function HomePage() {
 
   const [tipoDolar, setTipoDolar] = useState()
   const [dolarOficial, setDolarOficial] = useState()
+
   const [oficial, setOficial] = useState()
+  // const [qatar, setQatar] = useState(1);
+  // const [ahorro, setAhorro] = useState(1);
+  // const [tarjeta, setTarjeta] = useState(1);
+
+
 
   useEffect(() => {
+
     if (dataDolar) {
       setTipoDolar(dataDolar.filter((tipos) => {
         return tipos.casa.nombre !== "Argentina" &&
@@ -27,10 +34,10 @@ function HomePage() {
           tipos.casa.nombre !== "Bitcoin" &&
           tipos.casa.nombre !== "Dolar Soja" &&
           tipos.casa.nombre !== "Dolar turista"
-
       }))
-
-
+      // setDolarOficial(dataDolar.filter((dolar) => {
+      //   return dolar.casa.nombre === "Dolar Oficial"
+      // }))
     }
 
     if (dataDolar) {
@@ -39,20 +46,28 @@ function HomePage() {
       }))
     }
 
-    if (dolarOficial && dolarOficial.length !== 0) {
-
-      setOficial(parseFloat(dolarOficial[0].casa.venta.replace(/,/g, '.')).toFixed(2))
-  }
-
-
+    // setQatar(oficial * 2)
+    // setAhorro(oficial * 1.65)
+    // setTarjeta(oficial * 1.8)
 
 
   }, [dataDolar])
 
+useEffect(() => {
+ 
 
-console.log(dolarOficial)
-console.log(oficial)
+    if (dolarOficial && dataDolar) {
 
+      setOficial(parseFloat(dolarOficial[0].casa.venta.replace(/,/g, '.')).toFixed(2))
+
+    }
+}, [dataDolar,dolarOficial])
+
+
+
+  // console.log(dolarOficial)
+  // console.log(oficial)
+  // console.log(qatar)
 
 
 
@@ -63,12 +78,7 @@ console.log(oficial)
 
       <h2 className='home-title'>
         Tipos de Dolar
-        <a
-          href={"https://www.dolarsi.com/"}
-        >
-
-          (DolarSI)
-        </a>
+        
       </h2>
 
       <div className='d-flex flex-wrap container-main'>
@@ -108,19 +118,19 @@ console.log(oficial)
         <TarjetaDolar
           nombre={"Dolar Qatar"}
           compra={"No Cotiza"}
-          venta={oficial*2}
+          venta={(oficial*2).toFixed(2)}
           logo={dolarQatar}
         />
         <TarjetaDolar
           nombre={"Dolar Ahorro"}
           compra={"No Cotiza"}
-          venta={oficial*1.65}
+          venta={(oficial*1.65).toFixed(2)}
           logo={dolarAhorro}
         />
         <TarjetaDolar
           nombre={"Dolar Turista/Tarjeta"}
           compra={"No Cotiza"}
-          venta={oficial*1.80}
+          venta={(oficial*1.8).toFixed(2)}
           logo={dolarTurista}
         />
 

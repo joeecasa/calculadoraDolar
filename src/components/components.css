@@ -1,9 +1,12 @@
-.div-card{
-width: 347px;
-margin-bottom: 25px;
-box-shadow: 6px -4px teal;
-border-left: 1px solid black;
-border-bottom: 1px solid black;
+.div-card {
+    width: 70%;
+    margin-bottom: 25px;
+    box-shadow: 6px -4px teal;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    max-width: 367px;
+    margin: 15px;
+    
 
 }
 
@@ -17,28 +20,40 @@ border-bottom: 1px solid black;
     transition: all 0.5s;
     border-radius: 10px;
 }
-.navbar{
+
+.navbar {
     height: 68px;
     margin-bottom: 25px;
 }
+
 .nav-item:hover {
     border: solid 0.2px rgb(216, 216, 216);
     border-radius: 10px;
 }
 
-.nav-item{
+.nav-item {
     margin-left: 15px;
 }
-.card-logo{
+.nav-link{
+    color: black;
+}
+
+.card-logo {
     width: 50px;
     margin-left: 15px;
 }
-.card-title{
-    border-bottom: 1px solid black;
+
+.card-title {
+    border-bottom: 2px dotted black;
     padding-bottom: 8px;
     text-align: center;
+    font-weight: 600;
+    font-size: 23px;
 }
-
+.home-title{
+    font-size: 35px;
+    font-weight: bold;
+}
 
 
 .div-app {
@@ -51,9 +66,27 @@ border-bottom: 1px solid black;
     margin-top: 0px;
 }
 
-.card-text{
+.card-text {
     text-align: center;
+    font-size: 20px;
+    font-weight: 500;
 }
-@media (min-width: 992px) {
-   
+
+@media (min-width: 576px) {
+    
+}
+
+.link-foot {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    margin: 15px;
+    transition: all 0.5s;
+    width: 50%;
+}
+
+.link-foot:hover {
+    color: black;
 }

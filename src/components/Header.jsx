@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from "./assets/logo/logo.svg"
-import logo1 from "./assets/logo/logo.png"
+
+
 const Header = () => {
     return (
         <nav className="navbar navbar-expand" style={{"backgroundColor": "white"}}>
@@ -26,7 +27,7 @@ const Header = () => {
 
                         <li className='nav-item'>
                             <Link className='nav-link' to={"/calculadora"} >
-                                Calculadora
+                                Calculadora Dolar Tarjeta
                                 
                             </Link>
                         </li>

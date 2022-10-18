@@ -1,5 +1,5 @@
-import { ErrorMessage, useFormik } from 'formik';
-import React, { useEffect, useRef, useState } from 'react'
+import { useFormik } from 'formik';
+import React, { useEffect, useState } from 'react'
 import { useCustomFetchDolar } from '../hooks/useCustomFetchDolar';
 import * as Yup from "yup";
 import "./pages.css"
@@ -14,54 +14,57 @@ const Calculadora = () => {
     const [oficial, setOficial] = useState()
     const [impuestoPais, setImpuestoPais] = useState()
     const [impuestoGanancias, setImpuestoGanancias] = useState()
+    const [impuestoQatar, setImpuestoQatar] = useState()
     const [total, setTotal] = useState()
     const [resultado, setResultado] = useState()
     const [totalOficial, setTotalOficial] = useState()
 
-    const errorDiv= useRef()
+
 
 
     const onSubmit = () => {
 
-        if (values.cantidad < 300) {
+        if (values.cantidad < 301) {
             setResultado((total * 1).toFixed(2))
             setImpuestoGanancias((values.cantidad * oficial * 0.45).toFixed(2))
-            setImpuestoPais((values.cantidad * oficial * 0.35).toFixed(2))
+            setImpuestoPais((values.cantidad * oficial * 0.30).toFixed(2))
             setTotalOficial((values.cantidad * oficial).toFixed(2))
-
-
+            setImpuestoQatar(0)
+            
+            
         } else {
             setResultado((total * 1).toFixed(2))
-            setImpuestoGanancias((values.cantidad * oficial * 0.65).toFixed(2))
-            setImpuestoPais((values.cantidad * oficial * 0.35).toFixed(2))
+            setImpuestoGanancias((values.cantidad * oficial * 0.45).toFixed(2))
+            setImpuestoPais((values.cantidad * oficial * 0.30).toFixed(2))
             setTotalOficial((values.cantidad * oficial).toFixed(2))
+            setImpuestoQatar((values.cantidad * oficial*0.25).toFixed(2))
 
         }
 
 
-        
+
     }
 
-    
+
     const schema = Yup.object().shape({
         cantidad: Yup.number()
             .required('Es necesario insertar una cantidad')
             .positive("Debe introducir un numero mayor a 0")
 
-        });
-        
-        const { values, errors, handleChange, handleSubmit, } = useFormik({
+    });
+
+    const { values, errors, handleChange, handleSubmit, } = useFormik({
         initialValues: {
             cantidad: ""
         },
         enableReinitialize: true,
         onSubmit,
         validationSchema: schema,
-        validateOnBlur : false,
-        validateOnChange:false
-        
+        validateOnBlur: false,
+        validateOnChange: false
+
     })
-    
+
     useEffect(() => {
 
         if (dataDolar) {
@@ -101,86 +104,124 @@ const Calculadora = () => {
 
 
     return (
-        <div>
-            <h1>
+        <div className='div-calcu'>
+            <h1 className='title-calc'>
                 Calculadora Dolar Tarjeta
             </h1>
-            <form
-                onSubmit={handleSubmit}
-            >
-            <div>
-                Cotizacion (DolarSI)
-                {
-                    oficial
-                }
-            </div>
-                <label htmlFor='Cantidad'>
-                    Cantidad
+            <div className='container-calcu'>
+
+                <form
+                    onSubmit={ handleSubmit }
+                    className=""
+                >
+
                     <input
                         name='cantidad'
                         type="number"
-                        onChange={handleChange}
-                        value={values.cantidad}
+                        onChange={ handleChange }
+                        value={ values.cantidad }
+                        className="input-calc"
+
                     >
 
                     </input>
-                </label>
-                <button
-                    type='submit'
-                >
-                    calcular
+                    <button
+                        type='submit'
+                        className='btn btn-success'
+                    >
+                        calcular
 
-                </button>
-            </form>
-            <div>
-                Total ( sin Impuestos ) $
-                <span>
-                    {
-                        totalOficial
+                    </button>
+                    <div className='text-calc'>
+                        <div>
+                            Cotizacion Dolar Oficial
+                        </div>
+                        <div>
+                            $ { oficial }
+                        </div>
+                    </div>
+                </form>
+                <div className='text-calc'>
+                    <div>
 
-                    }
-                </span>
-            </div>
-            <div>
+                        Total ( Sin Impuestos )
+                    </div>
+                    <div>
+                        $ { totalOficial }
 
-                impuesto a las ganancias
+                    </div>
+
+                </div>
+                <div className='text-calc' >
+                    <div>
+                        + 45% impuesto ganancias
+                    </div>
+                    <div>
+                        $ { impuestoGanancias }
+                    </div>
+                </div>
+
+
+
 
                 {
-                    impuestoGanancias < 30949.87 ?
-                        (` 45% menos de 300 usd ${ impuestoGanancias }`)
+                    impuestoQatar > 0 ?
+                        (
+                            <div className='text-calc' >
+                                <div>
+                                    + 25% Impuesto Qatar*
+
+                                </div>
+                                <div>
+                                    $ { impuestoQatar }
+
+                                </div>
+
+                            </div>
+                        )
                         :
-                        ( ` 45% + 25% aplica gastando mas de 300 usd ${ impuestoGanancias } ` )
-
+                        ("")
                 }
-                <span>
-                    $
-                    {
-                        impuestoGanancias
+                <div className='text-calc'>
+                    <div>
+                        + 30% impuesto Pais
+                    </div>
+                    <div>
+                        $ { impuestoPais }
+                    </div>
 
-                    }
-                </span>
 
-                <div>
-                    impuesto Pais 35% { impuestoPais }
-                    
                 </div>
-                <div>
-                    Total
-                    <span>
-                        $
-                        {
-                            resultado
-                        }
-                    </span>
-                </div>
-                
+                <div className='text-calc'>
+                    <div>
 
+                        Total ( Con impuestos )
+                    </div>
+                    <div>
+                        $ { resultado }
+
+                    </div>
+
+                </div>
+                {
+                    impuestoQatar > 0 ?
+                        (
+                            <div className='text-calc' >
+                                <div>
+                                    *El impuesto Qatar Aplica cuando se superan los u$d 300
+
+                                </div>
+                                
+
+                            </div>
+                        )
+                        :
+                        ("")
+                }
                 <div
+                    className='text-error'
                 >
-                    {
-                        errors.cantidad
-
-                    }
+                    {errors.cantidad}
                 </div>
             </div>
         </div >
