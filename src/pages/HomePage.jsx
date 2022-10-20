@@ -130,7 +130,7 @@ useEffect(() => {
         <TarjetaDolar
           nombre={"Dolar Turista/Tarjeta"}
           compra={"No Cotiza"}
-          venta={(oficial*1.8).toFixed(2)}
+          venta={(oficial*1.75).toFixed(2)}
           logo={dolarTurista}
         />
 

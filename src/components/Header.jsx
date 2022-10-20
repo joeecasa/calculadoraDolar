@@ -10,7 +10,16 @@ const Header = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li>
+
+                            <Link
+                                className='nav-item'
+                                to={"/"}
+                            >
                             <img src={logo} className="App-logo" alt="logo" />
+                                
+                            </Link>
+                           
+
 
                         </li>
                         <li className='nav-item'>
@@ -21,13 +30,14 @@ const Header = () => {
                             >
                                 Home
                             </Link>
+
                         </li>
 
 
 
                         <li className='nav-item'>
                             <Link className='nav-link' to={"/calculadora"} >
-                                Calculadora Dolar Tarjeta
+                                Calculadora Dolar
                                 
                             </Link>
                         </li>

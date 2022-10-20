@@ -9,7 +9,7 @@ const Footer = () => {
       className='link-foot' 
       target="_blank" 
       rel="noopener noreferrer">
-        Desarrollado por Joel casa
+       © Joel Casa Marquez 2023
 
       </a>
 

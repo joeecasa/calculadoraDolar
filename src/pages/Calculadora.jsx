@@ -15,9 +15,17 @@ const Calculadora = () => {
     const [impuestoPais, setImpuestoPais] = useState()
     const [impuestoGanancias, setImpuestoGanancias] = useState()
     const [impuestoQatar, setImpuestoQatar] = useState()
-    const [total, setTotal] = useState()
+    const [totalTarjeta, setTotalTarjeta] = useState()
     const [resultado, setResultado] = useState()
     const [totalOficial, setTotalOficial] = useState()
+    const [totalBlue, setTotalBlue] = useState()
+    const [dolarBlue, setDolarBlue] = useState()
+    const [blue, setBlue] = useState()
+    const [resultadoBlue, setResultadoBlue] = useState()
+    const [resultadoAhorro, setResultadoAhorro] = useState()
+    const [totalAhorro, setTotalAhorro] = useState()
+    const [impuestoGananciasAhorro, setImpuestoGananciasAhorro] = useState()
+
 
 
 
@@ -25,21 +33,26 @@ const Calculadora = () => {
     const onSubmit = () => {
 
         if (values.cantidad < 301) {
-            setResultado((total * 1).toFixed(2))
+            setResultado((totalTarjeta * 1).toFixed(2))
             setImpuestoGanancias((values.cantidad * oficial * 0.45).toFixed(2))
             setImpuestoPais((values.cantidad * oficial * 0.30).toFixed(2))
             setTotalOficial((values.cantidad * oficial).toFixed(2))
             setImpuestoQatar(0)
-            
-            
+
+
         } else {
-            setResultado((total * 1).toFixed(2))
+            setResultado((totalTarjeta * 1).toFixed(2))
             setImpuestoGanancias((values.cantidad * oficial * 0.45).toFixed(2))
             setImpuestoPais((values.cantidad * oficial * 0.30).toFixed(2))
             setTotalOficial((values.cantidad * oficial).toFixed(2))
-            setImpuestoQatar((values.cantidad * oficial*0.25).toFixed(2))
+            setImpuestoQatar((values.cantidad * oficial * 0.25).toFixed(2))
 
         }
+
+        setResultadoBlue(totalBlue)
+        setResultadoAhorro(totalAhorro)
+        setImpuestoGananciasAhorro((values.cantidad * oficial * 0.35).toFixed(2))
+
 
 
 
@@ -55,7 +68,8 @@ const Calculadora = () => {
 
     const { values, errors, handleChange, handleSubmit, } = useFormik({
         initialValues: {
-            cantidad: ""
+            cantidad: "",
+            tipo: ""
         },
         enableReinitialize: true,
         onSubmit,
@@ -64,7 +78,7 @@ const Calculadora = () => {
         validateOnChange: false
 
     })
-
+    console.log(values.tipo)
     useEffect(() => {
 
         if (dataDolar) {
@@ -79,13 +93,41 @@ const Calculadora = () => {
             setOficial(parseFloat(dolarOficial[0].casa.venta.replace(/,/g, '.')).toFixed(2))
         }
 
-        setTotal(calculadoraDolar((values.cantidad)))
+        setTotalTarjeta(calculadoraDolarTarjeta((values.cantidad)))
+
+        if (dataDolar) {
+            setDolarBlue(
+                dataDolar.filter((unDolar) => {
+                    return unDolar.casa.nombre === "Dolar Blue"
+                })
+            )
+        }
+        if (dolarBlue && dolarBlue.length !== 0) {
+
+            setBlue(parseFloat(dolarBlue[0].casa.venta.replace(/,/g, '.')).toFixed(2))
+        }
+
+        setTotalBlue(calculadoraDolarBlue((values.cantidad)))
+
+        setTotalAhorro(calculadoraDolarAhorro((values.cantidad)))
+
+
+
+
+
+
 
     }, [dataDolar, values])
 
 
+    const calculadoraDolarBlue = (dolar) => {
+        return (dolar * blue).toFixed(2)
+    }
+    const calculadoraDolarAhorro = (dolar) => {
+        return (dolar * oficial * 1.65).toFixed(2)
+    }
 
-    const calculadoraDolar = (dolar) => {
+    const calculadoraDolarTarjeta = (dolar) => {
         if (dolar < 0) {
             return null
 
@@ -97,36 +139,69 @@ const Calculadora = () => {
     }
 
 
-
-
-
-
-
-
     return (
         <div className='div-calcu'>
             <h1 className='title-calc'>
                 Calculadora Dolar Tarjeta
             </h1>
             <div className='container-calcu '>
-        <div className='text-calc ingrese'>Ingrese la cantidad de dolares a calcular </div>
+
+
+
 
                 <form
-                    onSubmit={ handleSubmit }
+                    onSubmit={handleSubmit}
                     className="form-calc"
                 >
+                    <div className='text-calc'>
+                        Seleccione el tipo de dolar
+                    </div>
+
+                    <select
+                        name='tipo'
+                        value={values.tipo}
+                        onChange={handleChange}
+                        className="select-calc"
+                    >
+                        <option
+                            value={""}
+                            disabled selected
+                            
+
+                        >
+                            Seleccione
+                        </option>
+                        <option
+                            value={"Tarjeta"}
+                        >
+                            Dolar Tarjeta/Qatar
+                        </option>
+                        <option
+                            value={"Blue"}
+                        >
+                            Dolar Blue
+                        </option>
+                        <option
+                            value={"Ahorro"}
+                        >
+                            Dolar Ahorro
+                        </option>
+                    </select>
+
+                    <div className='text-calc ingrese'>Ingrese la cantidad de dolares a calcular </div>
+
 
                     <input
                         name='cantidad'
                         type="number"
-                        onChange={ handleChange }
-                        value={ values.cantidad }
+                        onChange={handleChange}
+                        value={values.cantidad}
                         className="input-calc"
 
                     >
 
                     </input>
-                   
+
                     <button
                         type='submit'
                         className='btn-calcu'
@@ -135,97 +210,276 @@ const Calculadora = () => {
 
                     </button>
                     <div
-                    className='text-error'
-                >
-                    {errors.cantidad}
-                </div>
-                    <div className='text-calc'>
-                        <div>
-                            Cotizacion Dolar Oficial
-                        </div>
-                        <div>
-                            $ { oficial }
-                        </div>
+                        className='text-error'
+                    >
+                        {errors.cantidad}
                     </div>
+
+                    {
+
+                        values.tipo === "Tarjeta" ?
+                            (
+                                <>
+
+                                    <div className='text-calc'>
+                                        <div>
+                                            Cotizacion Dolar Oficial
+                                        </div>
+                                        <div>
+                                            $ {oficial}
+                                        </div>
+                                    </div>
+                                    {
+                                        impuestoQatar > 0 ?
+                                            (
+                                                <div className='text-calc'>
+                                                    <div>
+                                                        Cotizacion Dolar Qatar
+                                                    </div>
+                                                    <div>
+                                                        $ {(oficial * 2).toFixed(2)}
+                                                    </div>
+                                                </div>
+                                            )
+                                            :
+                                            (
+                                                <div className='text-calc'>
+                                                    <div>
+                                                        Cotizacion Dolar Tarjeta
+                                                    </div>
+                                                    <div>
+                                                        $ {(oficial * 1.8).toFixed(2)}
+                                                    </div>
+                                                </div>
+                                            )
+                                    }
+
+                                </>
+                            )
+                            :
+                            values.tipo === "Blue" ?
+
+                                (
+                                    <>
+
+                                        <div className='text-calc'>
+                                            <div>
+                                                Cotizacion Dolar Oficial
+                                            </div>
+                                            <div>
+                                                $ {oficial}
+                                            </div>
+                                        </div>
+                                        <div className='text-calc'>
+                                            <div>
+                                                Cotizacion Dolar Blue
+                                            </div>
+                                            <div>
+                                                $ {blue}
+                                            </div>
+                                        </div>
+                                    </>
+                                )
+                                :
+                                values.tipo === "Ahorro" ?
+                                    (
+
+                                        <>
+
+                                            <div className='text-calc'>
+                                                <div>
+                                                    Cotizacion Dolar Oficial
+                                                </div>
+                                                <div>
+                                                    $ {oficial}
+                                                </div>
+                                            </div>
+                                            <div className='text-calc'>
+                                                <div>
+                                                    Cotizacion Dolar Ahorro
+                                                </div>
+                                                <div>
+                                                    $ {(oficial * 1.65).toFixed(2)}
+                                                </div>
+                                            </div>
+                                        </>
+                                    )
+                                    :
+                                    (
+                                        <div className='text-calc'>
+                                            Seleccione un tipo de dolar
+                                        </div>
+
+                                    )
+
+
+
+
+
+                    }
+
+
                 </form>
-                <div className='text-calc'>
-                    <div>
-
-                        Total ( Sin Impuestos )
-                    </div>
-                    <div>
-                        $ { totalOficial }
-
-                    </div>
-
-                </div>
-                <div className='text-calc' >
-                    <div>
-                        + 45% impuesto ganancias
-                    </div>
-                    <div>
-                        $ { impuestoGanancias }
-                    </div>
-                </div>
-
-
-
 
                 {
-                    impuestoQatar > 0 ?
+                    values.tipo === "Tarjeta" ?
                         (
-                            <div className='text-calc' >
-                                <div>
-                                    + 25% Impuesto Qatar*
+                            <div>
+                                <div className='text-calc'>
+                                    <div>
+
+                                        Total ( Sin Impuestos )
+                                    </div>
+                                    <div>
+                                        $ {totalOficial}
+
+                                    </div>
 
                                 </div>
-                                <div>
-                                    $ { impuestoQatar }
+                                <div className='text-calc' >
+                                    <div>
+                                        + 45% impuesto ganancias
+                                    </div>
+                                    <div>
+                                        $ {impuestoGanancias}
+                                    </div>
+                                </div>
+
+
+
+
+                                {
+                                    impuestoQatar > 0 ?
+                                        (
+                                            <div className='text-calc' >
+                                                <div>
+                                                    + 25% Impuesto Qatar*
+
+                                                </div>
+                                                <div>
+                                                    $ {impuestoQatar}
+
+                                                </div>
+
+                                            </div>
+                                        )
+                                        :
+                                        ("")
+                                }
+                                <div className='text-calc'>
+                                    <div>
+                                        + 30% impuesto Pais
+                                    </div>
+                                    <div>
+                                        $ {impuestoPais}
+                                    </div>
+
 
                                 </div>
+                                <div className='text-calc'>
+                                    <div>
+
+                                        Total ( Con impuestos )
+                                    </div>
+                                    <div>
+                                        $ {resultado}
+
+                                    </div>
+
+                                </div>
+                                {
+                                    impuestoQatar > 0 ?
+                                        (
+                                            <div className='text-calc' >
+                                                <div>
+                                                    *El impuesto Qatar Aplica cuando se superan los USD 300
+
+                                                </div>
+
+
+                                            </div>
+                                        )
+                                        :
+                                        ("")
+                                }
 
                             </div>
                         )
                         :
-                        ("")
-                }
-                <div className='text-calc'>
-                    <div>
-                        + 30% impuesto Pais
-                    </div>
-                    <div>
-                        $ { impuestoPais }
-                    </div>
+                        values.tipo === "Blue" ?
+                            (
+                                <div className='text-calc'>
+                                    <div>
 
+                                        Total
+                                    </div>
+                                    <div>
+                                        $ {resultadoBlue}
 
-                </div>
-                <div className='text-calc'>
-                    <div>
-
-                        Total ( Con impuestos )
-                    </div>
-                    <div>
-                        $ { resultado }
-
-                    </div>
-
-                </div>
-                {
-                    impuestoQatar > 0 ?
-                        (
-                            <div className='text-calc' >
-                                <div>
-                                    *El impuesto Qatar Aplica cuando se superan los USD 300
-
+                                    </div>
                                 </div>
-                                
+                            )
+                            :
+                            values.tipo === "Ahorro" ?
+                                (
+                                    <div>
 
-                            </div>
-                        )
-                        :
-                        ("")
+
+                                        <div className='text-calc'>
+                                            <div>
+
+                                                Total ( Sin Impuestos )
+                                            </div>
+                                            <div>
+                                                $ {totalOficial}
+
+                                            </div>
+
+                                        </div>
+                                        <div className='text-calc' >
+                                            <div>
+                                                + 35% impuesto ganancias
+                                            </div>
+                                            <div>
+                                                $ {impuestoGananciasAhorro}
+                                            </div>
+                                        </div>
+                                        <div className='text-calc'>
+                                            <div>
+                                                + 30% impuesto Pais
+                                            </div>
+                                            <div>
+                                                $ {impuestoPais}
+                                            </div>
+
+
+                                        </div>
+                                        <div className='text-calc'>
+                                            <div>
+
+                                            Total ( Con impuestos )
+                                            </div>
+                                            <div>
+                                                $ {resultadoAhorro}
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                )
+                                :
+                                (
+                                    <div>
+                                        nada
+                                    </div>
+                                )
+
                 }
-                
+
+
+
             </div>
         </div >
     )

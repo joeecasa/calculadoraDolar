@@ -8,9 +8,12 @@ import "./components.css"
 const App = () => {
   return (
     <div className='div-app'>
-      <Header />
-      <AppRoutes />
-      <Footer/>
+      <div className=''>
+
+        <Header />
+        <AppRoutes />
+      </div>
+      <Footer className="footer" />
     </div>
   )
 }
