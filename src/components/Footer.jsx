@@ -3,7 +3,7 @@ import "./components.css"
 const Footer = () => {
 
   return (
-    <div className='footer-probando'>
+    <div className='footer'>
       <a
         href="https://www.linkedin.com/in/joel-casa-marquez/"
         className='link-foot'

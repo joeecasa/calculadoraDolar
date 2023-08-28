@@ -6,7 +6,7 @@
     border-bottom: 1px solid black;
     max-width: 367px;
     margin: 15px;
-    
+
 
 }
 
@@ -35,7 +35,8 @@
 .nav-item {
     margin-left: 15px;
 }
-.nav-link{
+
+.nav-link {
     color: black;
 }
 
@@ -51,7 +52,8 @@
     font-weight: 600;
     font-size: 23px;
 }
-.home-title{
+
+.home-title {
     font-size: 35px;
     font-weight: bold;
 }
@@ -88,6 +90,7 @@
 .link-foot:hover {
     color: black;
 }
+
 .link-foot2 {
     color: white;
     text-decoration: none;
@@ -98,9 +101,19 @@
     transition: all 0.5s;
 
 }
-.cafecito{
-color: black;
+
+.cafecito {
+    color: black;
 }
-    .cafecito:hover {
-        color: white;
-    }  
+
+.cafecito:hover {
+    color: white;
+}
+
+.footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 30px;
+    }

@@ -12,7 +12,7 @@ const App = () => {
 
         <Header />
         <AppRoutes />
-        <Footer className="footer" />
+        <Footer />
       </div>
     </div>
   )
