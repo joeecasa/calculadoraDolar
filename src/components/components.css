@@ -88,3 +88,19 @@
 .link-foot:hover {
     color: black;
 }
+.link-foot2 {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    margin: 15px;
+    transition: all 0.5s;
+
+}
+.cafecito{
+color: black;
+}
+    .cafecito:hover {
+        color: white;
+    }  

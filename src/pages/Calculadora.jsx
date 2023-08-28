@@ -142,7 +142,7 @@ const Calculadora = () => {
     return (
         <div className='div-calcu'>
             <h1 className='title-calc'>
-                Calculadora Dolar Tarjeta
+                Calculadora de Dolar
             </h1>
             <div className='container-calcu '>
 

@@ -12,8 +12,8 @@ const App = () => {
 
         <Header />
         <AppRoutes />
+        <Footer className="footer" />
       </div>
-      <Footer className="footer" />
     </div>
   )
 }
