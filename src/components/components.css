@@ -67,6 +67,10 @@
     min-height: 100vh;
     /* minimum height of page would be equal to available view-port height */
     margin-top: 0px;
+    display: flex;
+    padding:0;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .card-text {
@@ -111,9 +115,9 @@
 }
 
 .footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 30px;
-    }
+        padding: 20px;
+}
+.content{
+    flex: 1;
+    padding:20px
+}

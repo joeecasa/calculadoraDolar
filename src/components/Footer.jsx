@@ -32,7 +32,7 @@ const Footer = () => {
         <a className='cafecito'
         href='https://cafecito.app/joeecasa'
         target='_blank'
-        rel='"noopener noreferrer"'
+        rel="noopener noreferrer"
         >https://cafecito.app/joeecasa</a>
       </div>
 
