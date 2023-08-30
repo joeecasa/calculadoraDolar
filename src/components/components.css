@@ -1,12 +1,24 @@
 .div-card {
-    width: 70%;
+    width: 100%;
     margin-bottom: 25px;
     box-shadow: 6px -4px teal;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
-    max-width: 367px;
+    max-width: 450px;
     margin: 15px;
 
+
+}
+.card-title-container{
+    width: 50%;
+
+}
+.card-text-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
 
 }
 
@@ -46,9 +58,9 @@
 }
 
 .card-title {
-    border-bottom: 2px dotted black;
+    /* border-bottom: 2px dotted black; */
     padding-bottom: 8px;
-    text-align: center;
+    text-align: left;
     font-weight: 600;
     font-size: 23px;
 }
@@ -79,7 +91,11 @@
     font-weight: 500;
 }
 
-
+.card-body{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
 
 .link-foot {
     color: white;
