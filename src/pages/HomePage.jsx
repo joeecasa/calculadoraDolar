@@ -45,16 +45,12 @@ function HomePage() {
         return dolar.casa.nombre === "Dolar Oficial"
       }))
     }
-
-    // setQatar(oficial * 2)
-    // setAhorro(oficial * 1.65)
-    // setTarjeta(oficial * 1.8)
+    console.log(dataDolar,"datadolar")
 
 
   }, [dataDolar])
 
 useEffect(() => {
- 
 
     if (dolarOficial && dataDolar) {
 
@@ -91,15 +87,16 @@ useEffect(() => {
 
                   <TarjetaDolar
                     key={dolares.casa.nombre}
-                    nombre={dolares.casa.nombre}
+                    nombre={dolares.casa.nombre=== "Dolar Bolsa" ? "Dolar Mep/Bolsa" :
+                      dolares.casa.nombre}
                     compra={dolares.casa.compra}
-                    venta={dolares.casa.venta}
+                    venta={(dolares.casa.venta)}
                     logo={dolares.casa.nombre === "Dolar Oficial" ? `${dolar}` :
                       dolares.casa.nombre === "Dolar turista" ? `${dolarTurista}` :
                         dolares.casa.nombre === "Dolar Bolsa" ? `${dolarBolsa}` :
                           dolares.casa.nombre === "Dolar Contado con Liqui" ? `${dolarLiqui}` :
-                            dolares.casa.nombre === "Dolar Blue" ? `${dolarBlue}` : "nada"
-
+                            dolares.casa.nombre === "Dolar Blue" ? `${dolarBlue}` :  
+                            dolares.casa.nombre === "Bitcoin" ? `${dolarBlue}` : "nada" 
                     }
                   />
 
