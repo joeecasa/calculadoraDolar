@@ -11,9 +11,8 @@ const TarjetaDolar = ({ nombre, venta, compra, logo }) => {
         <div className="card div-card">
             <div className="card-body">
                 <div className='card-title-container'>
-                    <h5 className="card-title">{nombre}
-                        <img src={logo} alt="logo" className='card-logo' />
-                    </h5>
+                    <h5 className="card-title">{nombre}</h5>
+                    <img src={logo} alt="logo" className='card-logo' />
                 </div>
                 <div className='card-text-container'>
                     <p className="card-text">Compra {compra}</p>

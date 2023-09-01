@@ -22,7 +22,7 @@ const Header = () => {
 
 
                         </li>
-                        <li className='nav-item'>
+                        {/* <li className='nav-item'>
 
                             <Link
                                 className='nav-link'
@@ -31,16 +31,16 @@ const Header = () => {
                                 Home
                             </Link>
 
-                        </li>
+                        </li> */}
 
 
 
-                        <li className='nav-item'>
+                        {/* <li className='nav-item'>
                             <Link className='nav-link' to={"/calculadora"} >
                                 Calculadora Dolar
                                 
                             </Link>
-                        </li>
+                        </li> */}
 
 
                     </ul>

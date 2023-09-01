@@ -7,7 +7,13 @@
 }
 
 .container-main {
-    justify-content: space-around;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 30%;
+    align-items: center
+    ;
+
 }
 
 .home-title {
@@ -32,7 +38,21 @@
 .div-calcu {
     margin: 15px;
 }
+.div-home{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+}
 
+@media (min-width:992px){
+    .div-home{
+        display: flex;
+        flex-direction:row;
+        justify-content:space-around
+    }
+
+}
 .input-calc {
     display: block;
     margin-left: auto;
@@ -118,3 +138,4 @@
 .ingrese {
     margin-left: 1px;
 }
+
