@@ -165,11 +165,11 @@ const Calculadora = () => {
             <h1 className='title-calc'>
                 Calculadora de Dolar
             </h1>
-            <div className='container-calcu '>
+            <div className='container-calcu'>
                 <form
                     onSubmit={handleSubmit}
                     className="form-calc">
-                    <div className='text-calc'>
+                    <div className='text-calc-title'>
                         Seleccione el tipo de dolar
                     </div>
 
@@ -208,7 +208,7 @@ const Calculadora = () => {
                         </option>
                     </select>
 
-                    <div className='text-calc ingrese'>Ingrese la cantidad de dolares a calcular </div>
+                    <div className='text-calc-title ingrese'>Ingrese la cantidad de dolares a calcular </div>
 
 
                     <input
@@ -380,98 +380,84 @@ const Calculadora = () => {
                                             )
 
                     }
-                </form>
-                {
-                    values.tipo === "Tarjeta" ?
-                        (
-                            <div>
-                                <div className='text-calc'>
-                                    <div>
 
-                                        Total ( Sin Impuestos )
-                                    </div>
-                                    <div>
-                                        $ {totalOficial}
-
-                                    </div>
-
-                                </div>
-                                <div className='text-calc' >
-                                    <div>
-                                        + 45% impuesto ganancias
-                                    </div>
-                                    <div>
-                                        $ {impuestoGanancias}
-                                    </div>
-                                </div>
-                                <div className='text-calc'>
-                                    <div>
-                                        + 30% impuesto Pais
-                                    </div>
-                                    <div>
-                                        $ {impuestoPais}
-                                    </div>
-                                </div>
-                                {
-                                    impuestoQatar > 0 ?
-                                        (
-                                            <div className='text-calc' >
-                                                <div>
-                                                    + 5% Impuesto Qatar*
-
-                                                </div>
-                                                <div>
-                                                    $ {impuestoQatar}
-
-                                                </div>
-
-                                            </div>
-                                        )
-                                        :
-                                        ("")
-                                }
-                                <div className='text-calc'>
-                                    <div>
-                                        Total ( Con impuestos )
-                                    </div>
-                                    <div>
-                                        $ {resultado}
-                                    </div>
-
-                                </div>
-
-                                {
-                                    impuestoQatar > 0 ?
-                                        (
-                                            <div className='text-calc' >
-                                                <div>
-                                                    *El impuesto Qatar Aplica cuando se superan los USD 300
-
-                                                </div>
-                                            </div>
-                                        )
-                                        :
-                                        ("")
-                                }
-
-                            </div>
-                        )
-                        :
-                        values.tipo === "Blue" ?
+                    {
+                        values.tipo === "Tarjeta" ?
                             (
-                                <div className='text-calc'>
-                                    <div>
+                                <div>
+                                    <div className='text-calc'>
+                                        <div>
 
-                                        Total
-                                    </div>
-                                    <div>
-                                        $ {resultadoBlue}
+                                            Total ( Sin Impuestos )
+                                        </div>
+                                        <div>
+                                            $ {totalOficial}
+
+                                        </div>
 
                                     </div>
+                                    <div className='text-calc' >
+                                        <div>
+                                            + 45% impuesto ganancias
+                                        </div>
+                                        <div>
+                                            $ {impuestoGanancias}
+                                        </div>
+                                    </div>
+                                    <div className='text-calc'>
+                                        <div>
+                                            + 30% impuesto Pais
+                                        </div>
+                                        <div>
+                                            $ {impuestoPais}
+                                        </div>
+                                    </div>
+                                    {
+                                        impuestoQatar > 0 ?
+                                            (
+                                                <div className='text-calc' >
+                                                    <div>
+                                                        + 5% Impuesto Qatar*
+
+                                                    </div>
+                                                    <div>
+                                                        $ {impuestoQatar}
+
+                                                    </div>
+
+                                                </div>
+                                            )
+                                            :
+                                            ("")
+                                    }
+                                    <div className='text-calc'>
+                                        <div>
+                                            Total ( Con impuestos )
+                                        </div>
+                                        <div>
+                                            $ {resultado}
+                                        </div>
+
+                                    </div>
+
+                                    {
+                                        impuestoQatar > 0 ?
+                                            (
+                                                <div className='text-calc' >
+                                                    <div>
+                                                        *El impuesto Qatar Aplica cuando se superan los USD 300
+
+                                                    </div>
+                                                </div>
+                                            )
+                                            :
+                                            ("")
+                                    }
+
                                 </div>
                             )
                             :
-                            values.tipo === "Mep/Bolsa" ?
+                            values.tipo === "Blue" ?
                                 (
                                     <div className='text-calc'>
                                         <div>
@@ -479,66 +465,81 @@ const Calculadora = () => {
                                             Total
                                         </div>
                                         <div>
-                                            $ {resultadoMep}
+                                            $ {resultadoBlue}
 
                                         </div>
                                     </div>
                                 )
                                 :
-                                values.tipo === "Ahorro" ?
+                                values.tipo === "Mep/Bolsa" ?
                                     (
-                                        <div>
+                                        <div className='text-calc'>
+                                            <div>
 
-
-                                            <div className='text-calc'>
-                                                <div>
-
-                                                    Total ( Sin Impuestos )
-                                                </div>
-                                                <div>
-                                                    $ {totalOficial}
-
-                                                </div>
+                                                Total
+                                            </div>
+                                            <div>
+                                                $ {resultadoMep}
 
                                             </div>
-                                            <div className='text-calc' >
-                                                <div>
-                                                    + 35% impuesto ganancias
-                                                </div>
-                                                <div>
-                                                    $ {impuestoGananciasAhorro}
-                                                </div>
-                                            </div>
-                                            <div className='text-calc'>
-                                                <div>
-                                                    + 30% impuesto Pais
-                                                </div>
-                                                <div>
-                                                    $ {impuestoPais}
-                                                </div>
-
-
-                                            </div>
-                                            <div className='text-calc'>
-                                                <div>
-
-                                                    Total ( Con impuestos )
-                                                </div>
-                                                <div>
-                                                    $ {resultadoAhorro}
-
-                                                </div>
-                                            </div>
-
                                         </div>
-
-
                                     )
                                     :
-                                    (
-                                        ""
-                                    )
-                }
+                                    values.tipo === "Ahorro" ?
+                                        (
+                                            <div>
+
+
+                                                <div className='text-calc'>
+                                                    <div>
+
+                                                        Total ( Sin Impuestos )
+                                                    </div>
+                                                    <div>
+                                                        $ {totalOficial}
+
+                                                    </div>
+
+                                                </div>
+                                                <div className='text-calc' >
+                                                    <div>
+                                                        + 35% impuesto ganancias
+                                                    </div>
+                                                    <div>
+                                                        $ {impuestoGananciasAhorro}
+                                                    </div>
+                                                </div>
+                                                <div className='text-calc'>
+                                                    <div>
+                                                        + 30% impuesto Pais
+                                                    </div>
+                                                    <div>
+                                                        $ {impuestoPais}
+                                                    </div>
+
+
+                                                </div>
+                                                <div className='text-calc'>
+                                                    <div>
+
+                                                        Total ( Con impuestos )
+                                                    </div>
+                                                    <div>
+                                                        $ {resultadoAhorro}
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                        )
+                                        :
+                                        (
+                                            ""
+                                        )
+                    }
+                </form>
             </div>
         </div >
     )

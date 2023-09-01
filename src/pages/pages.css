@@ -22,17 +22,16 @@
 
 .container-calcu {
     /* border: 1px solid rgb(0, 21, 255); */
-    padding: 20px;
+    padding: 4px;
     max-width: 400px;
-    min-width: 328px;
+    min-width: 285px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     background-color: rgb(4 15 62);
     border-radius: 20px;
     min-height: 350px;
-    margin-top: 25px;
-    width: 100%;
+    width: 95%;
 }
 
 .div-calcu {
@@ -53,11 +52,15 @@
         justify-content:space-around;
         align-items: center;
     }
+    .div-calcu {
+        margin: 15px;
+        width: 50%;
+    }
    
 
 }
 .input-calc {
-    display: block;
+    /* display: block;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
@@ -67,7 +70,14 @@
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     padding: 5px;
-    padding-left: 10px;
+    padding-left: 10px; */
+    color: black;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 10px;
+    padding: 7px;
+    width: 100%;
+    max-width: 317px;
 
 }
 
@@ -88,6 +98,11 @@
     margin-bottom: 20px;
     justify-content: space-between;
     display: flex;
+}
+.text-calc-title {
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .select-calc {
@@ -114,8 +129,11 @@
 
 
 .form-calc {
-    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
+    padding: 10PX;
+    /* text-align: center; */
 }
 
 .btn-calcu {

@@ -92,7 +92,7 @@ function Cotizaciones() {
 
                   <TarjetaDolar
                     key={dolares.casa.nombre}
-                    nombre={dolares.casa.nombre === "Dolar Bolsa" ? "Dolar Mep/Bolsa" :
+                    nombre={dolares.casa.nombre === "Dolar Bolsa" ? "Dolar Mep" :
                       dolares.casa.nombre}
                     compra={dolares.casa.compra}
                     venta={(dolares.casa.venta)}

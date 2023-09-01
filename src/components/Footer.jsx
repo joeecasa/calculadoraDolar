@@ -28,7 +28,7 @@ const Footer = () => {
         target="_blank"
         rel="cafecito"
       >
-        Si te gusto/sirvio la web, no dudes en dar una ayudita :)&nbsp;
+        Si te gusto/sirvio la web, no dudes en dar una ayudita :) &nbsp;
         <a className='cafecito'
         href='https://cafecito.app/joeecasa'
         target='_blank'
