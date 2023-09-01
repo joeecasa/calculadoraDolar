@@ -23,8 +23,8 @@
 .container-calcu {
     /* border: 1px solid rgb(0, 21, 255); */
     padding: 20px;
-    max-width: 350px;
-    min-width: 325px;
+    max-width: 400px;
+    min-width: 328px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -32,10 +32,12 @@
     border-radius: 20px;
     min-height: 350px;
     margin-top: 25px;
+    width: 100%;
 }
 
 .div-calcu {
     margin: 15px;
+    width: 100%;
 }
 .div-home{
     display: flex;
@@ -113,6 +115,7 @@
 
 .form-calc {
     margin-top: 15px;
+    width: 100%;
 }
 
 .btn-calcu {

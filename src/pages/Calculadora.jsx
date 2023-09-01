@@ -166,14 +166,9 @@ const Calculadora = () => {
                 Calculadora de Dolar
             </h1>
             <div className='container-calcu '>
-
-
-
-
                 <form
                     onSubmit={handleSubmit}
-                    className="form-calc"
-                >
+                    className="form-calc">
                     <div className='text-calc'>
                         Seleccione el tipo de dolar
                     </div>
@@ -182,8 +177,7 @@ const Calculadora = () => {
                         name='tipo'
                         value={values.tipo}
                         onChange={handleChange}
-                        className="select-calc"
-                    >
+                        className="select-calc">
                         <option
                             value={""}
                             disabled selected
