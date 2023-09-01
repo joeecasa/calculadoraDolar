@@ -130,7 +130,7 @@ function Cotizaciones() {
           logo={dolarAhorro}
         />
         <TarjetaDolar
-          nombre={"Dolar Turista/Tarjeta"}
+          nombre={"Dolar Tarjeta"}
           compra={"No Cotiza"}
           venta={(oficial * 1.75).toFixed(2)}
           logo={dolarTurista}

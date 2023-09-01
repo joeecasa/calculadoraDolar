@@ -10,7 +10,6 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 30%;
     align-items: center
     ;
 
@@ -49,8 +48,10 @@
     .div-home{
         display: flex;
         flex-direction:row;
-        justify-content:space-around
+        justify-content:space-around;
+        align-items: center;
     }
+   
 
 }
 .input-calc {
