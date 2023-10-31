@@ -6,7 +6,8 @@ import "./components.css"
 const TarjetaDolar = ({ nombre, venta, compra, logo }) => {
 
 
-
+console.log(parseFloat(venta).toFixed(2))
+console.log(venta + compra)
     return (
         <div className="card div-card">
             <div className="card-body">
@@ -15,8 +16,9 @@ const TarjetaDolar = ({ nombre, venta, compra, logo }) => {
                     <img src={logo} alt="logo" className='card-logo' />
                 </div>
                 <div className='card-text-container'>
-                    <p className="card-text">Compra {compra}</p>
-                    <p className="card-text">Venta {venta}</p>
+                    <p className="card-text">Compra {compra} 
+                        </p>
+                    <p className="card-text">Venta {(venta)}</p>
                 </div>
             </div>
         </div >

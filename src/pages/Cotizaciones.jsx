@@ -118,7 +118,7 @@ function Cotizaciones() {
             )
         }
         <TarjetaDolar
-          nombre={"Dolar Qatar"}
+          nombre={"Dolar Tarjeta"}
           compra={"No Cotiza"}
           venta={(oficial * 2).toFixed(2)}
           logo={dolarQatar}
@@ -129,12 +129,12 @@ function Cotizaciones() {
           venta={(oficial * 1.65).toFixed(2)}
           logo={dolarAhorro}
         />
-        <TarjetaDolar
+        {/* <TarjetaDolar
           nombre={"Dolar Tarjeta"}
           compra={"No Cotiza"}
           venta={(oficial * 1.75).toFixed(2)}
           logo={dolarTurista}
-        />
+        /> */}
 
       </div>
     // </div>

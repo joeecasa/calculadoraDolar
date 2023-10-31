@@ -23,8 +23,8 @@
 .container-calcu {
     /* border: 1px solid rgb(0, 21, 255); */
     padding: 4px;
-    max-width: 400px;
-    /* min-width: 285px; */
+    max-width: 380px;
+    min-width: 285px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -33,6 +33,10 @@
     min-height: 350px;
     width: 95%;
 }
+.div-total{
+    width: 50%;
+}
+
 
 .div-calcu {
     margin: 15px;
@@ -60,24 +64,14 @@
 
 }
 .input-calc {
-    /* display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 317px;
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    padding: 5px;
-    padding-left: 10px; */
+    
     color: black;
     margin-bottom: 20px;
     border: none;
     border-radius: 10px;
     padding: 7px;
     width: 100%;
-    max-width: 317px;
+    max-width: 400px;
 
 }
 
@@ -112,7 +106,7 @@
     border-radius: 10px;
     padding: 7px;
     width: 100%;
-    max-width: 317px;
+    max-width: 400px;
 
 }
 
@@ -146,7 +140,7 @@
     color: white;
     border-color: none;
     transition: all 0.5s;
-    max-width: 317px;
+    max-width: 400px;
     margin-bottom: 20px;
 
 
