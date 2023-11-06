@@ -6,16 +6,18 @@ import "./pages.css"
 
 
 const Calculadora = () => {
-    const jsonDolar = useCustomFetchDolar("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
+    // const jsonDolar = useCustomFetchDolar("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
+    const jsonDolar = useCustomFetchDolar("https://dolarapi.com/v1/dolares")
 
     const { dataDolar } = !!jsonDolar && jsonDolar;
+
+    console.log(dataDolar)
 
     const [dolarOficial, setDolarOficial] = useState()
     const [oficial, setOficial] = useState()
     const [impuestoPais, setImpuestoPais] = useState()
     const [impuestoGanancias, setImpuestoGanancias] = useState()
     const [bienespersonales, setBienesPersonales] = useState()
-    const [impuestoQatar, setImpuestoQatar] = useState()
     const [totalTarjeta, setTotalTarjeta] = useState()
     const [resultado, setResultado] = useState()
     const [totalOficial, setTotalOficial] = useState()
@@ -87,13 +89,13 @@ const Calculadora = () => {
         if (dataDolar) {
             setDolarOficial(
                 dataDolar.filter((unDolar) => {
-                    return unDolar.casa.nombre === "Dolar Oficial"
+                    return unDolar.nombre === "Oficial"
                 })
             )
         }
         if (dolarOficial && dolarOficial.length !== 0) {
 
-            setOficial(parseFloat(dolarOficial[0].casa.venta.replace(/,/g, '.')).toFixed(2))
+            setOficial(parseFloat(dolarOficial[0].venta).toFixed(2))
         }
 
         setTotalTarjeta(calculadoraDolarTarjeta((values.cantidad)))
@@ -101,25 +103,25 @@ const Calculadora = () => {
         if (dataDolar) {
             setDolarBlue(
                 dataDolar.filter((unDolar) => {
-                    return unDolar.casa.nombre === "Dolar Blue"
+                    return unDolar.nombre === "Blue"
                 })
             )
         }
         if (dolarBlue && dolarBlue.length !== 0) {
 
-            setBlue(parseFloat(dolarBlue[0].casa.venta.replace(/,/g, '.')).toFixed(2))
+            setBlue(parseFloat(dolarBlue[0].venta).toFixed(2))
         }
         if (dataDolar) {
             setDolarMep(
                 dataDolar.filter((unDolar) => {
-                    return unDolar.casa.nombre === "Dolar Bolsa"
+                    return unDolar.nombre === "Bolsa"
                 })
             )
         }
 
         if (dolarMep && dolarMep.length !== 0) {
 
-            setMep(parseFloat(dolarMep[0].casa.venta.replace(/,/g, '.')).toFixed(2))
+            setMep(parseFloat(dolarMep[0].venta).toFixed(2))
         }
 
         setTotalBlue(calculadoraDolarBlue((values.cantidad)))

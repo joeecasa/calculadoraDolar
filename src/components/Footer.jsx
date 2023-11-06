@@ -15,12 +15,12 @@ const Footer = () => {
 
       <a
         className='link-foot'
-        href={"https://www.dolarsi.com/"}
+        href={"https://dolarapi.com/"}
         target="_blank"
         rel="noopener noreferrer"
       >
         Fuente
-        (DolarSI)
+        (DolarApi)
       </a>
       <div
         className='link-foot2'

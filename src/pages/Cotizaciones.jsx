@@ -14,7 +14,8 @@ import "./pages.css"
 function Cotizaciones() {
 
 
-  const jsonDolar = useCustomFetchDolar("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
+  // const jsonDolar = useCustomFetchDolar("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
+  const jsonDolar = useCustomFetchDolar("https://dolarapi.com/v1/dolares")
 
   const { dataDolar } = !!jsonDolar && jsonDolar;
 
@@ -37,12 +38,9 @@ function Cotizaciones() {
 
     if (dataDolar) {
       setTipoDolar(dataDolar.filter((tipos) => {
-        return tipos.casa.nombre !== "Argentina" &&
-          tipos.casa.nombre !== "Dolar" &&
-          tipos.casa.nombre !== "Bitcoin" &&
-          tipos.casa.nombre !== "Dolar Soja" &&
-          tipos.casa.nombre !== "Dolar Contado con Liqui" &&
-          tipos.casa.nombre !== "Dolar turista"
+        return tipos.casa !== "solidario" &&
+          tipos.casa !== "mayorista"  &&
+          tipos.casa !== "contadoconliqui"
       }))
       // setDolarOficial(dataDolar.filter((dolar) => {
       //   return dolar.casa.nombre === "Dolar Oficial"
@@ -51,7 +49,7 @@ function Cotizaciones() {
 
     if (dataDolar) {
       setDolarOficial(dataDolar.filter((dolar) => {
-        return dolar.casa.nombre === "Dolar Oficial"
+        return dolar.casa === "oficial"
       }))
     }
     console.log(dataDolar, "datadolar")
@@ -63,7 +61,7 @@ function Cotizaciones() {
 
     if (dolarOficial && dataDolar) {
 
-      setOficial(parseFloat(dolarOficial[0].casa.venta.replace(/,/g, '.')).toFixed(2))
+      setOficial(parseFloat(dolarOficial[0].venta).toFixed(2))
 
     }
   }, [dataDolar, dolarOficial])
@@ -91,16 +89,18 @@ function Cotizaciones() {
                 return (
 
                   <TarjetaDolar
-                    key={dolares.casa.nombre}
-                    nombre={dolares.casa.nombre === "Dolar Bolsa" ? "Dolar Mep" :
-                      dolares.casa.nombre}
-                    compra={dolares.casa.compra}
-                    venta={(dolares.casa.venta)}
-                    logo={dolares.casa.nombre === "Dolar Oficial" ? `${dolar}` :
-                      dolares.casa.nombre === "Dolar turista" ? `${dolarTurista}` :
-                        dolares.casa.nombre === "Dolar Bolsa" ? `${dolarBolsa}` :
-                          dolares.casa.nombre === "Dolar Contado con Liqui" ? `${dolarLiqui}` :
-                            dolares.casa.nombre === "Dolar Blue" ? `${dolarBlueLogo}` :
+                    key={dolares.casa}
+                    nombre={dolares.casa === "bolsa" ? "Dolar Mep" :
+                    dolares.casa === "blue" ? "Dolar Blue" : 
+                    dolares.casa === "oficial" ? "Dolar Oficial" :
+                      dolares.nombre}
+                    compra={dolares.compra}
+                    venta={(dolares.venta)}
+                    logo={dolares.casa === "oficial" ? `${dolar}` :
+                      dolares.casa === "Oficial" ? `${dolarTurista}` :
+                        dolares.casa === "bolsa" ? `${dolarBolsa}` :
+                          dolares.casa === "contadoconliqui" ? `${dolarLiqui}` :
+                            dolares.casa === "blue" ? `${dolarBlueLogo}` :
                               ""
                     }
                   />
@@ -120,13 +120,13 @@ function Cotizaciones() {
         <TarjetaDolar
           nombre={"Dolar Tarjeta"}
           compra={"No Cotiza"}
-          venta={(oficial * 2).toFixed(2)}
+          venta={(oficial * 2).toFixed(0)}
           logo={dolarQatar}
         />
         <TarjetaDolar
           nombre={"Dolar Ahorro"}
           compra={"No Cotiza"}
-          venta={(oficial * 1.65).toFixed(2)}
+          venta={(oficial * 1.65).toFixed(0)}
           logo={dolarAhorro}
         />
         {/* <TarjetaDolar

@@ -145,3 +145,26 @@
     padding:20px;
     min-width: 328px
 }
+
+
+.maintenance-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  }
+
+  .content {
+    text-align: center;
+    padding: 15px;
+
+  }
+  
+  .maintenance-h1 {
+    color: #333333;
+  }
+  
+  .maintenance-p {
+    color: #666666;
+    font-size: 25px;
+  }
