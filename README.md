@@ -25,7 +25,7 @@ Asegúrate de tener Node.js instalado. Luego, puedes seguir estos pasos:
 - JavaScript
 - HTML
 - CSS
-- [Nombre de la API que utilizas para obtener las cotizaciones]
+- https://dolarapi.com/
 
 ## Contribución
 
