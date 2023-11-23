@@ -47,7 +47,7 @@ const Calculadora = () => {
     const onSubmit = () => {
 
         setResultado((totalTarjeta * 1).toFixed(2))
-        setImpuestoGanancias((values.cantidad * oficial * 0.45).toFixed(2))
+        setImpuestoGanancias((values.cantidad * oficial * 2).toFixed(2))
         setImpuestoPais((values.cantidad * oficial * 0.30).toFixed(2))
         setTotalOficial((values.cantidad * oficial).toFixed(2))
         setBienesPersonales((values.cantidad * oficial * 0.25).toFixed(2))
@@ -153,12 +153,12 @@ const Calculadora = () => {
 
     }
     const calculadoraAhorroPesos = (pesos) => {
-        return (pesos / (oficial * 1, 65)).toFixed(2)
+        return (pesos / (oficial * 2.55)).toFixed(2)
 
     }
 
     const calculadoraTarjetaPesos = (pesos) => {
-        return (pesos / (oficial * 2)).toFixed(2)
+        return (pesos / (oficial * 2.55)).toFixed(2)
     }
 
 
@@ -169,7 +169,7 @@ const Calculadora = () => {
 
 
     const calculadoraDolarAhorro = (dolar) => {
-        return (dolar * oficial * 1.65).toFixed(2)
+        return (dolar * oficial * 2.55).toFixed(2)
     }
 
     const calculadoraDolarTarjeta = (dolar) => {
@@ -177,7 +177,7 @@ const Calculadora = () => {
             return null
         }
         else {
-            return (dolar * 2 * oficial).toFixed(2)
+            return (dolar * 2.55 * oficial).toFixed(2)
         }
 
     }
@@ -295,7 +295,7 @@ const Calculadora = () => {
                                                                 Cotizacion Dolar Tarjeta
                                                             </div>
                                                             <div>
-                                                                $ {(oficial * 2).toFixed(2)}
+                                                                $ {(oficial * 2.55).toFixed(2)}
                                                             </div>
                                                         </div>
                                                     )
@@ -369,7 +369,7 @@ const Calculadora = () => {
                                                                     Cotizacion Dolar Ahorro
                                                                 </div>
                                                                 <div>
-                                                                    $ {(oficial * 1.65).toFixed(2)}
+                                                                    $ {(oficial * 2.55).toFixed(2)}
                                                                 </div>
                                                             </div>
                                                         </>
@@ -559,7 +559,7 @@ const Calculadora = () => {
                                                                         Cotizacion Dolar Ahorro
                                                                     </div>
                                                                     <div>
-                                                                        $ {(oficial * 1.65).toFixed(2)}
+                                                                        $ {(oficial * 2.55).toFixed(2)}
                                                                     </div>
                                                                 </div>
                                                             </>
@@ -589,7 +589,7 @@ const Calculadora = () => {
                                                     </div>
                                                     <div className='text-calc' >
                                                         <div className='div-total'>
-                                                            + 45% impuesto ganancias
+                                                            + 100% impuesto ganancias
                                                         </div>
                                                         <div>
                                                             $ {impuestoGanancias}
@@ -668,19 +668,27 @@ const Calculadora = () => {
 
                                                                 </div>
                                                                 <div className='text-calc' >
-                                                                    <div>
-                                                                        + 35% impuesto ganancias
+                                                                    <div className='div-total'>
+                                                                        + 100% impuesto ganancias
                                                                     </div>
                                                                     <div>
-                                                                        $ {impuestoGananciasAhorro}
+                                                                        $ {impuestoGanancias}
                                                                     </div>
                                                                 </div>
                                                                 <div className='text-calc'>
-                                                                    <div>
+                                                                    <div className='div-total'>
                                                                         + 30% impuesto Pais
                                                                     </div>
                                                                     <div>
                                                                         $ {impuestoPais}
+                                                                    </div>
+                                                                </div>
+                                                                <div className='text-calc'>
+                                                                    <div className='div-total'>
+                                                                        + 25% Bienes personales
+                                                                    </div>
+                                                                    <div>
+                                                                        $ {bienespersonales}
                                                                     </div>
 
 

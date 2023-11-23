@@ -72,7 +72,7 @@ function Cotizaciones() {
   // console.log(oficial)
   // console.log(qatar)
 
-
+console.log(tipoDolar)
 
   return (
     // <div className='div-home'>
@@ -120,13 +120,13 @@ function Cotizaciones() {
         <TarjetaDolar
           nombre={"Dolar Tarjeta"}
           compra={"No Cotiza"}
-          venta={(oficial * 2).toFixed(0)}
+          venta={(oficial * 2.55).toFixed(2)}
           logo={dolarQatar}
         />
         <TarjetaDolar
           nombre={"Dolar Ahorro"}
           compra={"No Cotiza"}
-          venta={(oficial * 1.65).toFixed(0)}
+          venta={(oficial * 2.55).toFixed(2)}
           logo={dolarAhorro}
         />
         {/* <TarjetaDolar
