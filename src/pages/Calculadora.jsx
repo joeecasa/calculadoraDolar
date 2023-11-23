@@ -484,7 +484,7 @@ const Calculadora = () => {
                                                                     Cotizacion Dolar Tarjeta
                                                                 </div>
                                                                 <div>
-                                                                    $ {(oficial * 2).toFixed(2)}
+                                                                    $ {(oficial * 2.55).toFixed(2)}
                                                                 </div>
                                                             </div>
                                                         )
@@ -628,7 +628,7 @@ const Calculadora = () => {
                                                     <div className='text-calc'>
                                                         <div>
 
-                                                            Total
+                                  45%                          Total
                                                         </div>
                                                         <div>
                                                             $ {resultadoBlue}
