@@ -54,7 +54,7 @@ function Cotizaciones() {
         return dolar.casa === "oficial"
       }))
     }
-    console.log(dataDolar, "datadolar")
+    // console.log(dataDolar, "datadolar")
 
 
   }, [dataDolar])
@@ -74,7 +74,7 @@ function Cotizaciones() {
   // console.log(oficial)
   // console.log(qatar)
 
-console.log(tipoDolar)
+// console.log(tipoDolar)
 
   return (
     // <div className='div-home'>

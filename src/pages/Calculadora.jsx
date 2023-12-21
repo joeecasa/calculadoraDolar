@@ -11,7 +11,7 @@ const Calculadora = () => {
 
     const { dataDolar } = !!jsonDolar && jsonDolar;
 
-    console.log(dataDolar)
+    // console.log(dataDolar)
 
     const [dolarOficial, setDolarOficial] = useState()
     const [oficial, setOficial] = useState()

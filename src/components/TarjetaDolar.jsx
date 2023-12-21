@@ -6,8 +6,8 @@ import "./components.css"
 const TarjetaDolar = ({ nombre, venta, compra, logo }) => {
 
 
-console.log(parseFloat(venta).toFixed(2))
-console.log(venta + compra)
+// console.log(parseFloat(venta).toFixed(2))
+// console.log(venta + compra)
     return (
         <div className="card div-card">
             <div className="card-body">
