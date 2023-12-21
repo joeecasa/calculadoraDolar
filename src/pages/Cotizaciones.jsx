@@ -8,6 +8,7 @@ import dolarQatar from "../components/assets/logo/dolarQatar.svg"
 import dolarAhorro from "../components/assets/logo/dolarAhorro.svg"
 import dolarLiqui from "../components/assets/logo/dolarLiqui.svg"
 import dolarTurista from "../components/assets/logo/dolarTurista.svg"
+import Bitcoin from "../components/assets/logo/Bitcoin.svg"
 
 import "./pages.css"
 
@@ -40,7 +41,8 @@ function Cotizaciones() {
       setTipoDolar(dataDolar.filter((tipos) => {
         return tipos.casa !== "solidario" &&
           tipos.casa !== "mayorista"  &&
-          tipos.casa !== "contadoconliqui"
+          tipos.casa !== "contadoconliqui" &&
+          tipos.casa !== "tarjeta"
       }))
       // setDolarOficial(dataDolar.filter((dolar) => {
       //   return dolar.casa.nombre === "Dolar Oficial"
@@ -93,6 +95,7 @@ console.log(tipoDolar)
                     nombre={dolares.casa === "bolsa" ? "Dolar Mep" :
                     dolares.casa === "blue" ? "Dolar Blue" : 
                     dolares.casa === "oficial" ? "Dolar Oficial" :
+                    dolares.casa === "cripto" ? "Dolar Cripto" : 
                       dolares.nombre}
                     compra={dolares.compra}
                     venta={(dolares.venta)}
@@ -101,6 +104,7 @@ console.log(tipoDolar)
                         dolares.casa === "bolsa" ? `${dolarBolsa}` :
                           dolares.casa === "contadoconliqui" ? `${dolarLiqui}` :
                             dolares.casa === "blue" ? `${dolarBlueLogo}` :
+                            dolares.casa === "cripto" ? `${Bitcoin}` : 
                               ""
                     }
                   />
@@ -120,13 +124,13 @@ console.log(tipoDolar)
         <TarjetaDolar
           nombre={"Dolar Tarjeta"}
           compra={"No Cotiza"}
-          venta={(oficial * 2.55).toFixed(2)}
+          venta={(oficial * 1.60).toFixed(2)}
           logo={dolarQatar}
         />
         <TarjetaDolar
           nombre={"Dolar Ahorro"}
           compra={"No Cotiza"}
-          venta={(oficial * 2.55).toFixed(2)}
+          venta={(oficial * 1.60).toFixed(2)}
           logo={dolarAhorro}
         />
         {/* <TarjetaDolar
