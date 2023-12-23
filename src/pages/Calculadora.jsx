@@ -249,7 +249,17 @@ const Calculadora = () => {
                             Dolar Mep/Bolsa
                         </option>
                     </select>
-                    <div className='text-calc-title ingrese'>Ingrese la cantidad de pesos a calcular </div>
+
+                    {
+                        values.moneda === "Pesos" ?
+                            (
+                                <div className='text-calc-title ingrese'>Ingrese la cantidad de pesos a calcular </div>
+                            )
+                            :
+                            (
+                                <div className='text-calc-title ingrese'>Ingrese la cantidad de dolares a calcular </div>
+                            )
+                    }
                     <input
                         name='cantidad'
                         type="number"
@@ -628,7 +638,7 @@ const Calculadora = () => {
                                                     <div className='text-calc'>
                                                         <div>
 
-                                                          Total
+                                                            Total
                                                         </div>
                                                         <div>
                                                             $ {resultadoBlue}
